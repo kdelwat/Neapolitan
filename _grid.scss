@@ -1,3 +1,30 @@
-body {
-    font-size: 20px;
+@mixin grid ($gutter:1em, $direction: row) {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: $direction;
+
+    padding: $gutter / 2;
+
+    & > * {
+        display: block;
+        flex: 1 1 auto;
+
+        margin: $gutter / 2;
+    }
+
+}
+
+@mixin gobble ($strength) {
+
+    $value: 2;
+
+    @if $strength != 1 {
+        @for $n from 2 through $strength {
+            $value: $value * 2;
+        }
+    }
+
+    flex-grow: $value;
 }
