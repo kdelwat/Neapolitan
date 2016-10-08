@@ -1,0 +1,13 @@
+@function type-scale($ratio, $level) {
+    $base: 1rem;
+
+    @if $level == 1{
+        @return $base;
+    }
+
+    @for $i from 1 through ($level - 1) {
+        $base: $base * $ratio;
+    }
+
+    @return $base;
+}

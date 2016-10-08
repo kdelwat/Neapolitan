@@ -4,45 +4,15 @@
 @import "responsive";
 @import "alignment";
 
+@import "typography";
+
 $mobile: media-until(500px);
 $desktop: media-from(501px);
 
-#container {
+article {
+    @include center(800px);
 }
 
-#grid {
-    @include grid($media:$desktop);
-    @include grid($media:$mobile, $direction: column);
-}
-
-#one {
-    background-color: red;
-}
-
-#two {
-    background-color: green;
-}
-
-#three {
-    background-color: blue;
-}
-
-p{
-    background-color: yellow;
-}
-
-#two {
-    @include width(1/2, $desktop);
-}
-
-#one {
-    @include hide($mobile);
-}
-
-img {
-    @include respond();
-}
-
-table {
-    @include respond();
+h1 {
+    font-size: type-scale(1.5, 3);
 }
