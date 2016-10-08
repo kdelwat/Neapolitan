@@ -32,3 +32,33 @@
 @function media-between($min-size, $max-size) {
     @return (min-width: $min-size, max-width: $max-size);
 }
+
+@mixin hide($medias) {
+    @if length($medias) == 1{
+        @include break($medias) {
+            display: none;
+        }
+    } @else {
+        @each $media in $medias {
+            @include break($media) {
+                display: none;
+            }
+        }
+    }
+}
+
+@mixin show($medias) {
+    display: none;
+
+    @if length($medias) == 1{
+        @include break($medias) {
+            display: block;
+        }
+    } @else {
+        @each $media in $medias {
+            @include break($media) {
+                display: block;
+            }
+        }
+    }
+}

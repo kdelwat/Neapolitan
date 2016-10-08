@@ -39,6 +39,5 @@ p{
 }
 
 #one {
-    @include gobble(1);
-    @include gobble(2, $mobile);
+    @include hide($mobile);
 }
