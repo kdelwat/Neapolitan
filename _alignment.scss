@@ -1,0 +1,7 @@
+@mixin center($width, $media:"") {
+    @include break($media) {
+        width: $width;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

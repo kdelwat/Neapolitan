@@ -9,9 +9,15 @@
 
 @import "grid";
 @import "responsive";
+@import "alignment";
 
 $mobile: media-until(500px);
 $desktop: media-from(501px);
+
+#container {
+    @include center(500px, $desktop);
+    @include center(200px, $mobile);
+}
 
 #grid {
     @include grid;
