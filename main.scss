@@ -47,3 +47,7 @@ p{
 #one {
     @include hide($mobile);
 }
+
+img {
+    @include respond();
+}

@@ -62,3 +62,11 @@
         }
     }
 }
+
+@mixin respond() {
+    $active: #{nth(&, -1)};
+    @if $active == 'img' {
+        width: 100%;
+        height: auto;
+    }
+}
