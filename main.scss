@@ -1,4 +1,4 @@
-html, body {
+* {
     margin: 0;
     padding: 0;
 }
@@ -14,6 +14,25 @@ html, body {
 }
 
 #one {
-    @include gobble(2);
+    background-color: red;
+}
+
+#two {
+    background-color: green;
+}
+
+#three {
+    background-color: blue;
+}
+
+p{
+    background-color: yellow;
+}
+
+#one {
+    @include width(1/6);
+}
+#two {
+    @include width(1/2);
 }
 

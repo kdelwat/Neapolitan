@@ -5,15 +5,19 @@
     display: flex;
     flex-direction: $direction;
 
-    padding: $gutter / 2;
+    padding: ( $gutter / 2);
 
     & > * {
         display: block;
         flex: 1 1 auto;
 
-        margin: $gutter / 2;
+        padding: ( $gutter / 2);
     }
 
+}
+
+@mixin width ($fraction) {
+    flex: 0 0 ($fraction * 100%);
 }
 
 @mixin gobble ($strength) {
