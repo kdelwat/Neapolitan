@@ -1,0 +1,34 @@
+@mixin breakpoint($parameters){
+
+    $query: 'screen and ';
+
+    @each $variable, $value in $parameters {
+        $query: $query + '(' + $variable + ':' + $value + ') and ';
+    };
+
+    $query: str-slice($query, 0, -5);
+
+    @media #{$query} { @content; };
+}
+
+@mixin break($media) {
+    @if $media != "" {
+        @include breakpoint($media) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+@function media-until($size) {
+    @return (max-width: $size);
+}
+
+@function media-from($size) {
+    @return (min-width: $size);
+}
+
+@function media-between($min-size, $max-size) {
+    @return (min-width: $min-size, max-width: $max-size);
+}

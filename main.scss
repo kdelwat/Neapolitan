@@ -8,6 +8,10 @@
 }
 
 @import "grid";
+@import "responsive";
+
+$mobile: media-until(500px);
+$desktop: media-from(501px);
 
 #grid {
     @include grid;
@@ -29,10 +33,12 @@ p{
     background-color: yellow;
 }
 
-#one {
-    @include width(1/6);
-}
 #two {
-    @include width(1/2);
+    @include width(1/2, $desktop);
+    @include width(1/4, $mobile);
 }
 
+#one {
+    @include gobble(1);
+    @include gobble(2, $mobile);
+}

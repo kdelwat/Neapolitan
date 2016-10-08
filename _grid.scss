@@ -16,11 +16,13 @@
 
 }
 
-@mixin width ($fraction) {
-    flex: 0 0 ($fraction * 100%);
+@mixin width ($fraction, $media:"") {
+    @include break($media) {
+        flex: 0 0 ($fraction * 100%);
+    }
 }
 
-@mixin gobble ($strength) {
+@mixin gobble ($strength, $media:"") {
 
     $value: 2;
 
@@ -30,5 +32,7 @@
         }
     }
 
-    flex-grow: $value;
+    @include break($media) {
+        flex-grow: $value;
+    }
 }
