@@ -1,6 +1,3 @@
-$type-ratio: 1.3333;
-$type-basis: 1rem;
-
 @function type-scale($ratio, $level, $base: $type-basis) {
     $base: 1rem;
 
@@ -19,6 +16,10 @@ $type-basis: 1rem;
     @return $base;
 }
 
+body { line-height: $line-height; }
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal }
+
 h1 { font-size: type-scale($type-ratio, 6) }
 h2 { font-size: type-scale($type-ratio, 5) }
 h3 { font-size: type-scale($type-ratio, 4) }
@@ -34,9 +35,11 @@ h5 > small { font-size: type-scale($type-ratio, 1) }
 h6 > small { font-size: type-scale($type-ratio, 0) }
 
 p {
-    font-size: type-scale($type-ratio, 1)
-}
+    font-size: type-scale($type-ratio, 1);
 
-body {
-    line-height: 1.5;
-}
+    abbr {
+        font-variant: small-caps;
+    }
+
+  }
+

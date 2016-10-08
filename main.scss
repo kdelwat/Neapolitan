@@ -4,7 +4,10 @@
 @import "responsive";
 @import "alignment";
 
+@import "impure-vars";
+
 @import "typography";
+
 
 $mobile: media-until(500px);
 $desktop: media-from(501px);
