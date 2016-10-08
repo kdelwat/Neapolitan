@@ -68,5 +68,7 @@
     @if $active == 'img' {
         width: 100%;
         height: auto;
+    } @else if $active == 'table' {
+        overflow-x: auto;
     }
 }
