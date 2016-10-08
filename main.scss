@@ -18,7 +18,8 @@ $desktop: media-from(501px);
 }
 
 #grid {
-    @include grid;
+    @include grid($media:$desktop);
+    @include grid($media:$mobile, $direction: column);
 }
 
 #one {
@@ -46,5 +47,9 @@ p{
 }
 
 img {
+    @include respond();
+}
+
+table {
     @include respond();
 }
