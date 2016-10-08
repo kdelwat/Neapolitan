@@ -1,13 +1,42 @@
-@function type-scale($ratio, $level) {
+$type-ratio: 1.3333;
+$type-basis: 1rem;
+
+@function type-scale($ratio, $level, $base: $type-basis) {
     $base: 1rem;
 
     @if $level == 1{
         @return $base;
-    }
-
-    @for $i from 1 through ($level - 1) {
-        $base: $base * $ratio;
+    } @else if $level > 1 {
+        @for $i from 1 through ($level - 1) {
+            $base: $base * $ratio;
+        }
+    } @else {
+        @for $i from $level through 0 {
+            $base: $base / $ratio;
+        }
     }
 
     @return $base;
+}
+
+h1 { font-size: type-scale($type-ratio, 6) }
+h2 { font-size: type-scale($type-ratio, 5) }
+h3 { font-size: type-scale($type-ratio, 4) }
+h4 { font-size: type-scale($type-ratio, 3) }
+h5 { font-size: type-scale($type-ratio, 2) }
+h6 { font-size: type-scale($type-ratio, 1) }
+
+h1 > small { font-size: type-scale($type-ratio, 5) }
+h2 > small { font-size: type-scale($type-ratio, 4) }
+h3 > small { font-size: type-scale($type-ratio, 3) }
+h4 > small { font-size: type-scale($type-ratio, 2) }
+h5 > small { font-size: type-scale($type-ratio, 1) }
+h6 > small { font-size: type-scale($type-ratio, 0) }
+
+p {
+    font-size: type-scale($type-ratio, 1)
+}
+
+body {
+    line-height: 1.5;
 }
