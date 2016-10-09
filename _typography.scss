@@ -18,7 +18,14 @@
 
 body { line-height: $line-height; }
 
-h1, h2, h3, h4, h5, h6 { font-weight: normal }
+h1, h2, h3, h4, h5, h6 {
+
+    font-weight: normal;
+
+    & > small {
+        font-size: (1em / $type-ratio) / $type-ratio;
+    }
+}
 
 h1 { font-size: type-scale($type-ratio, 6) }
 h2 { font-size: type-scale($type-ratio, 5) }
@@ -27,13 +34,6 @@ h4 { font-size: type-scale($type-ratio, 3) }
 h5 { font-size: type-scale($type-ratio, 2) }
 h6 { font-size: type-scale($type-ratio, 1) }
 
-h1 > small { font-size: type-scale($type-ratio, 5) }
-h2 > small { font-size: type-scale($type-ratio, 4) }
-h3 > small { font-size: type-scale($type-ratio, 3) }
-h4 > small { font-size: type-scale($type-ratio, 2) }
-h5 > small { font-size: type-scale($type-ratio, 1) }
-h6 > small { font-size: type-scale($type-ratio, 0) }
-
 p {
     font-size: type-scale($type-ratio, 1);
 
@@ -41,5 +41,5 @@ p {
         font-variant: small-caps;
     }
 
-  }
+}
 
