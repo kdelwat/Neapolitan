@@ -8,11 +8,9 @@
 
 @import "typography";
 
-
 $mobile: media-until(500px);
 $desktop: media-from(501px);
 
 article {
     @include center(800px);
 }
-
