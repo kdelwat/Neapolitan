@@ -5,12 +5,60 @@
 @import "alignment";
 
 @import "impure-vars";
-
 @import "typography";
 
-$mobile: media-until(500px);
-$desktop: media-from(501px);
+$tablet: media-from(481px);
+$desktop: media-from(769px);
 
-article {
-    @include center(800px);
+$text-colour: #1d1d1d;
+$background-colour: #f1f1f1;
+
+$vanilla: #FFCAB1;
+$chocolate: #8C602F;
+$strawberry: E68DA7;
+
+body {
+    background-color: $background-colour;
+}
+
+main {
+    @include center(450px, $tablet);
+    @include center(750px, $desktop);
+
+    padding: 1rem;
+    color: $text-colour;
+}
+
+header {
+    color: white;
+    text-align: center;
+
+    small {
+        display: block;
+    }
+
+    @include grid($gutter: 0rem);
+
+    .vanilla {
+        @include width(1);
+        @include width(1/2, $media: $tablet);
+    }
+}
+
+ul {
+    @include grid($direction: column);
+    @include grid($direction: row, $media: $tablet);
+    @include grid($direction: row, $media: $desktop, $gutter: 2em);
+}
+
+.strawberry {
+    background-color: $strawberry;
+}
+
+.vanilla {
+    background-color: $vanilla;
+}
+
+.chocolate {
+    background-color: $chocolate;
 }
