@@ -10,6 +10,9 @@
 $tablet: media-from(481px);
 $desktop: media-from(769px);
 
+$heading-font: 'Patua One', sans-serif;
+$body-font: 'Raleway', sans-serif;
+
 $text-colour: #1d1d1d;
 $background-colour: #f1f1f1;
 
@@ -19,6 +22,7 @@ $strawberry: E68DA7;
 
 body {
     background-color: $background-colour;
+    font-family: $body-font;
 }
 
 main {
@@ -42,7 +46,18 @@ header {
     .vanilla {
         @include width(1);
         @include width(1/2, $media: $tablet);
+        padding-bottom: 1rem;
+
+        h1 {
+            font-size: type-scale($type-ratio, 7);
+            font-family: $heading-font;
+        }
+
+        h2 {
+            font-size: type-scale($type-ratio, 4);
+        }
     }
+
 }
 
 ul {
