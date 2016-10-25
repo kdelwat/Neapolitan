@@ -3,6 +3,7 @@
 @import "grid";
 @import "responsive";
 @import "alignment";
+@import "elements";
 
 @import "impure-vars";
 @import "typography";
@@ -18,7 +19,7 @@ $background-colour: #f1f1f1;
 
 $vanilla: #FFCAB1;
 $chocolate: #8C602F;
-$strawberry: E68DA7;
+$strawberry: #E68DA7;
 
 body {
     background-color: $background-colour;
@@ -27,26 +28,31 @@ body {
 
 main {
     @include center(450px, $tablet);
-    @include center(750px, $desktop);
+    @include center(50%, $desktop);
 
     padding: 1rem;
     color: $text-colour;
+
+    & > p {
+        margin-top: 1rem;
+    }
 }
 
 header {
-    color: white;
-    text-align: center;
-
-    small {
-        display: block;
-    }
-
     @include grid($gutter: 0rem);
 
     .vanilla {
         @include width(1);
         @include width(1/2, $media: $tablet);
+
         padding-bottom: 1rem;
+
+        color: white;
+        text-align: center;
+
+        small {
+            display: block;
+        }
 
         h1 {
             font-size: type-scale($type-ratio, 7);
@@ -57,7 +63,6 @@ header {
             font-size: type-scale($type-ratio, 4);
         }
     }
-
 }
 
 ul {
@@ -76,4 +81,29 @@ ul {
 
 .chocolate {
     background-color: $chocolate;
+}
+
+li {
+    text-align: center;
+}
+
+.strawberry-text {
+    color: $strawberry;
+    font-weight: bold;
+}
+
+.vanilla-text {
+    color: $vanilla;
+    font-weight: bold;
+}
+
+.chocolate-text {
+    color: $chocolate;
+    font-weight: bold;
+}
+
+hr {
+    background-color: $background-colour;
+    border-top: 3px dashed $strawberry;
+    border-bottom: 0;
 }
