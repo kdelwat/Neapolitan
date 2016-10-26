@@ -36,6 +36,11 @@ main {
     & > p {
         margin-top: 1rem;
     }
+
+    & > h2 {
+        text-align: right;
+        color: $chocolate;
+    }
 }
 
 header {
@@ -106,4 +111,37 @@ hr {
     background-color: $background-colour;
     border-top: 3px dashed $strawberry;
     border-bottom: 0;
+
+    margin: 1rem 0;
+}
+
+img {
+    width: 20vw;
+    float: left;
+    margin-left: -25vw;
+}
+
+code {
+    background-color: $vanilla;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: $body-font;
+}
+
+pre > code {
+    display: block;
+    padding: 1rem;
+    margin: 1rem;
+
+    font-size: 0.9rem;
+}
+
+.tub {
+    @include grid($gutter: 2rem);
+}
+
+.tub > div {
+    height: 100px;
+    border-radius: 3px;
+
 }

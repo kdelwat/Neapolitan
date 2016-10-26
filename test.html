@@ -35,7 +35,41 @@
             </ul>
 
             <hr>
+
+            <h2>The Grid</h2>
+
+            <img src="gustave.svg"></img>
+
+            <p>Neapolitan's grid is built on Flexbox, which lends it a heap of
+            flexibility. Sizes can be automatically calculated, explicitly
+            specified, or a mix of both.</p>
+
+            <p>To demonstrate usage of Neapolitan's grid, we need the help of
+            Gustave, the ice-cream loving bird who is very fussy about his
+            colour proportions.</p>
+
+            <p> Gustave decides he wants a container of standard neapolitan
+            icecream: chocolate, vanilla, and strawberry.</p>
+
+            <pre><code>&lt;div class=&quot;tub&quot;&gt;
+    &lt;div class=&quot;chocolate&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;vanilla&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;strawberry&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <p>It's as simple as adding the <code>grid</code>
+            mixin.</p>
+
+            <div class="tub">
+                <div class="chocolate"></div>
+                <div class="vanilla"></div>
+                <div class="strawberry"></div>
+            </div>
+
+            <pre><code>.tub {
+    @include grid();
+}</code></pre>
+
         </main>
 
-    </body>
-</html>
+    </body> </html>
