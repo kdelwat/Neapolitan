@@ -38,6 +38,10 @@ main {
         margin-top: 1rem;
     }
 
+    ul + p {
+        margin-top: 0;
+    }
+
     & > h2 {
         text-align: right;
         color: $chocolate;
@@ -127,6 +131,17 @@ code {
     padding: 1px 4px;
     border-radius: 3px;
     font-family: $code-font;
+}
+
+emph {
+    display: block;
+    margin: 1rem 0;
+
+    text-align: center;
+    font-style: italic;
+    font-size: type-scale($type-ratio, 4);
+
+    color: $chocolate;
 }
 
 pre > code {
