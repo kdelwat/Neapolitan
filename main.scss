@@ -4,8 +4,6 @@
 @import "responsive";
 @import "alignment";
 @import "elements";
-
-@import "impure-vars";
 @import "typography";
 
 $tablet: media-from(481px);
@@ -14,6 +12,7 @@ $desktop: media-from(769px);
 $heading-font: 'Patua One', sans-serif;
 $code-font: 'PT Mono', monospace;
 $body-font: 'Raleway', sans-serif;
+$type-ratio: 1.3333;
 
 $text-colour: #1d1d1d;
 $background-colour: #f1f1f1;
@@ -25,6 +24,15 @@ $strawberry: #E68DA7;
 body {
     background-color: $background-colour;
     font-family: $body-font;
+    line-height: 1.5;
+    font-weight: normal;
+}
+
+h2 { font-size: type-scale($type-ratio, 5) }
+h3 { font-size: type-scale($type-ratio, 4) }
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
 }
 
 main {
