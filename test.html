@@ -46,10 +46,8 @@
 
             <p>To demonstrate usage of Neapolitan's grid, we need the help of
             Gustave, the ice-cream loving bird who is very fussy about his
-            colour proportions.</p>
-
-            <p> Gustave decides he wants a container of standard neapolitan
-            icecream: chocolate, vanilla, and strawberry.</p>
+            colour proportions. He decides he wants a container of standard
+            neapolitan icecream: chocolate, vanilla, and strawberry.</p>
 
             <pre><code>&lt;div class=&quot;tub&quot;&gt;
     &lt;div class=&quot;chocolate&quot;&gt;&lt;/div&gt;
@@ -70,6 +68,80 @@
     @include grid();
 }</code></pre>
 
+            <p>Deep down, however, Gustave is a strawberry bird at heart. He
+            decides that his ideal container of icecream should be half
+            strawberry, with the rest evenly divided between the other
+            flavours.</p>
+
+            <div class="tub-two">
+                <div class="chocolate"></div>
+                <div class="vanilla"></div>
+                <div class="strawberry"></div>
+            </div>
+
+            <pre><code>.tub {
+    @include grid();
+}
+
+.strawberry {
+    @include width(1/2);
+}</code></pre>
+
+            <p>Gustave is happy with the new strawberry arrangement, but after
+            some soul-searching he decides that vanilla really isn't for him.
+            He's not sure exactly how much more chocolate he wants, but he
+            knows that it should be more than it is currently.</p>
+
+            <div class="tub-three">
+                <div class="chocolate"></div>
+                <div class="vanilla"></div>
+                <div class="strawberry"></div>
+            </div>
+
+            <pre><code>.tub {
+    @include grid();
+}
+
+.strawberry {
+    @include width(1/2);
+}
+
+.chocolate {
+    @include gobble(2);
+}</code></pre>
+
+            <p>Finally, Gustave is satisfied with the arrangement. However, he
+            is about to go on a flight, where he will be forced to use his
+            mobile phone to browse Twitter, his favourite website. He decides
+            that for such an inconvenience he really deserves more strawberry.
+            Wouldn't it be nice if his container automatically adapted for such
+            changes?</p>
+
+            <div class="tub-four">
+                <div class="chocolate"></div>
+                <div class="vanilla"></div>
+                <div class="strawberry"></div>
+            </div>
+
+            <pre><code>.tub {
+    @include grid();
+}
+
+$desktop: media-from(769px);
+
+.strawberry {
+    @include width(2/3);
+    @include width(1/2, $desktop);
+}
+
+.chocolate {
+    @include gobble(2, $desktop);
+}</code></pre>
+
+        <p>Hopefully the flexibility of the grid system has become clear. The
+        grid itself can even accept breakpoints which influence parameters like
+        direction and gutter widths.</p>
         </main>
+
 
     </body> </html>

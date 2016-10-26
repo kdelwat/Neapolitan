@@ -136,12 +136,40 @@ pre > code {
     font-size: 0.9rem;
 }
 
-.tub {
+.tub > div, .tub-two > div, .tub-three > div, .tub-four > div{
+    height: 100px;
+    border-radius: 3px;
+}
+
+.tub, .tub-two, .tub-three, .tub-four {
     @include grid($gutter: 2rem);
 }
 
-.tub > div {
-    height: 100px;
-    border-radius: 3px;
+.tub-two {
+    .strawberry {
+        @include width(1/2);
+    }
+}
 
+.tub-three {
+
+    .strawberry {
+        @include width(1/2);
+    }
+
+    .chocolate {
+        @include gobble(2);
+    }
+}
+
+.tub-four {
+
+    .strawberry {
+        @include width(2/3);
+        @include width(1/2, $desktop);
+    }
+
+    .chocolate {
+        @include gobble(2, $desktop);
+    }
 }
