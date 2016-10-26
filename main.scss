@@ -12,6 +12,7 @@ $tablet: media-from(481px);
 $desktop: media-from(769px);
 
 $heading-font: 'Patua One', sans-serif;
+$code-font: 'PT Mono', monospace;
 $body-font: 'Raleway', sans-serif;
 
 $text-colour: #1d1d1d;
@@ -122,10 +123,10 @@ img {
 }
 
 code {
-    background-color: $vanilla;
+    background-color: lighten($vanilla, 7%);
     padding: 1px 4px;
     border-radius: 3px;
-    font-family: $body-font;
+    font-family: $code-font;
 }
 
 pre > code {
@@ -134,6 +135,7 @@ pre > code {
     margin: 1rem;
 
     font-size: 0.9rem;
+    line-height: 1.2;
 }
 
 .tub > div, .tub-two > div, .tub-three > div, .tub-four > div{
