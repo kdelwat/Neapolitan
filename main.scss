@@ -5,8 +5,10 @@
 @import "alignment";
 @import "elements";
 @import "typography";
+@import "ui";
 
-$tablet: media-from(481px);
+$mobile: media-until(480px);
+$tablet: media-between(481px, 768px);
 $desktop: media-from(769px);
 
 $heading-font: 'Patua One', sans-serif;
@@ -83,7 +85,7 @@ header {
     }
 }
 
-ul {
+ul.mmm {
     @include grid($direction: column);
     @include grid($direction: row, $media: $tablet);
     @include grid($direction: row, $media: $desktop, $gutter: 2em);
@@ -101,7 +103,7 @@ ul {
     background-color: $chocolate;
 }
 
-li {
+.mmm li {
     text-align: center;
 }
 
@@ -196,5 +198,55 @@ pre > code {
 
     .chocolate {
         @include gobble(2, $desktop);
+    }
+}
+
+.responsive-helper-example {
+    @include grid();
+
+    h3 {
+        font-size: type-scale($type-ratio, 2);
+    }
+
+    li:nth-child(1) {
+        @include show($mobile);
+    }
+
+    li:nth-child(2) {
+        @include hide($tablet);
+    }
+
+    li:nth-child(3) {
+        @include breakpoint($desktop) {
+            color: $strawberry;
+        }
+    }
+}
+
+.dropdown {
+    @include horizontal-menu();
+
+    background-color: $vanilla;
+    border-radius: 3px;
+
+    margin: 1rem 0;
+
+    li {
+        padding: 5px;
+        font-size: 1.2rem;
+    }
+
+    li:hover {
+        background-color: lighten($vanilla, 10%);
+    }
+
+    ul {
+        border-radius: 3px;
+        background-color: $strawberry;
+        margin-left: -5px;
+
+        li {
+            font-size: type-scale($type-ratio, 1);
+        }
     }
 }

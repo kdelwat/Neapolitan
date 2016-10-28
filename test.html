@@ -21,7 +21,7 @@
             purely semantic HTML, aiding readability and accessibility for
             human and robot alike.</p>
 
-            <ul>
+            <ul class="mmm">
                 <li><h3 class="chocolate-text">Minimal</h3>
                     <p>Use only the styles you need. This site is built with
                     Neapolitan and weighs in at <em>-62kb</em></p>
@@ -150,7 +150,135 @@ $desktop: media-from(769px);
 
         <p>Hopefully the flexibility of the grid system has become clear. The
         grid itself can even accept breakpoints which influence parameters like
-        direction and gutter widths.</p>
+            direction and gutter widths.</p>
+
+        Here is a <span>target<div>Something to display</div></span>.
+
+        <hr>
+
+        <h2>Responsiveness</h2>
+
+        <p>Neapolitan comes with a number of responsive helpers. The key to the
+        responsiveness system is the concept of defining breakpoints. A
+        breakpoint is simply defined as a Sass map, where each key-value pair
+        is a media query setting (like <code>max-width</code>). If you don't
+        want to do this by hand (and let's face it, who does?), just use one of
+            the included functions.</p>
+
+        <pre><code>$desktop: media-from(769px);
+$tablet: media-between(481px, 768px);
+$mobile: media-until(480px);
+</code></pre>
+
+        <p>As we saw in the grid section, almost every Neapolitan mixin takes a <code>$media</code> parameter,
+        which applies the mixin to only that breakpoint variable. There are
+        also a number of responsive helpers which act on breakpoints.</p>
+
+        <ul class="responsive-helper-example">
+            <li><h3>Mobile Only!</h3>
+                <p>The <code>show</code> mixin hides an element for all
+                breakpoints except the given one.</p>
+            </li>
+            <li><h3>Hidden on Tablet!</h3>
+                <p>The <code>hide</code> mixin hides an element for only the
+                given breakpoint.</p>
+            </li>
+            <li><h3>Sometimes Pink!</h3>
+                <p>The <code>breakpoint</code> mixin can apply arbitrary styles
+                to a breakpoint.</p>
+            </li>
+        </ul>
+
+        <pre><code>li {
+    @include grid();
+
+    li:nth-child(1) {
+        @include show($mobile);
+    }
+
+    li:nth-child(2) {
+        @include hide($tablet);
+    }
+
+    li:nth-child(3) {
+        @include breakpoint($desktop) {
+            color: $strawberry;
+        }
+    }
+}</code></pre>
+
+        <hr>
+
+        <h2>Components</h2>
+
+        <p>Neapolitan comes with a variety of completely unstyled, pure-CSS UI
+        components. Due to the mixin-based nature of the framework, it's
+        important to use the right HTML structure with the right component.
+        However, the approach lends itself to great flexibility.</p>
+
+        <p>For example, the <code>horizontal-menu</code> component converts a list of lists into a horizontal dropdown menu.</p>
+
+        <ul class="dropdown">
+            <li>Flavours
+                <ul>
+                    <li>Chocolate</li>
+                    <li>Vanilla</li>
+                    <li>Strawberry</li>
+                </ul>
+            </li>
+            <li>Suppliers
+                <ul>
+                    <li>Ice Creams 'r' Us</li>
+                    <li>Cream and Gleam</li>
+                    <li>We Scream for Ice Cream</li>
+                </ul>
+            </li>
+            <li>Locations
+                <ul>
+                    <li>Melbourne</li>
+                    <li>Sydney</li>
+                    <li>Canberra</li>
+                    <li>Adelaide</li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <pre><code>&lt;ul id="menu"&gt;
+    &lt;li&gt;Flavours
+        &lt;ul&gt;
+            &lt;li&gt;Chocolate&lt;/li&gt;
+            &lt;li&gt;Vanilla&lt;/li&gt;
+            &lt;li&gt;Strawberry&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Suppliers
+        &lt;ul&gt;
+            &lt;li&gt;Ice Creams 'r' Us&lt;/li&gt;
+            &lt;li&gt;Cream and Gleam&lt;/li&gt;
+            &lt;li&gt;We Scream for Ice Cream&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Locations
+        &lt;ul&gt;
+            &lt;li&gt;Melbourne&lt;/li&gt;
+            &lt;li&gt;Sydney&lt;/li&gt;
+            &lt;li&gt;Canberra&lt;/li&gt;
+            &lt;li&gt;Adelaide&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+        <pre><code>#menu {
+    @include horizontal-menu();
+}</code></pre>
+
+        <p>Hopefully that example proves how easy it is to apply the UI
+        components to HTML, while still keeping it semantic. It's important to
+        remember that there is no default styling for the components, and the
+        example above includes extra styles that aren't listed. This keeps the
+            UI very flexible!</p>
+
         </main>
 
 
