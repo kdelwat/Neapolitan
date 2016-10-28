@@ -1,0 +1,21 @@
+@mixin horizontal-menu ($alignment: flex-start) {
+    display: flex;
+    justify-content: $alignment;
+    position: relative;
+
+    & > li {
+        display: inline-block;
+
+        ul {
+            position: absolute;
+            display: none;
+        }
+    }
+
+    & > li:hover {
+
+        ul {
+            display: block;
+        }
+    }
+}
