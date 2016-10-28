@@ -42,3 +42,31 @@
         }
     }
 }
+
+@mixin overlay ($direction: "bottom", $spacing: 0%) {
+    position: relative;
+
+    & > * {
+        display: none;
+        position: absolute;
+
+        @if $direction == "bottom" {
+            left: 0;
+            top: 100% + $spacing;
+        } @else if $direction == "top" {
+            left: 0;
+            bottom: 100% + $spacing;
+        } @else if $direction == "right" {
+            left: 100% + $spacing;
+            top: 0;
+        } @else if $direction == "left" {
+            right: 100% + $spacing;
+            top: 0;
+        }
+    }
+
+    &:hover > * {
+        display: block;
+    }
+}
+
