@@ -37,3 +37,18 @@
         flex-grow: $value;
     }
 }
+
+@mixin acquiesce ($strength, $media:"") {
+
+    $value: 1;
+
+    @if $strength != 1 {
+        @for $n from 2 through $strength {
+            $value: $value * 2;
+        }
+    }
+
+    @include break($media) {
+        flex-shrink: $value;
+    }
+}
