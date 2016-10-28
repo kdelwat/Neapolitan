@@ -5,3 +5,13 @@
         margin-right: auto;
     }
 }
+
+@mixin clearfix($media:"") {
+    @include break($media) {
+        &::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+}
