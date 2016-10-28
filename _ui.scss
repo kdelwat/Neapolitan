@@ -19,3 +19,26 @@
         }
     }
 }
+
+@mixin vertical-menu () {
+    position: relative;
+    display: inline-block;
+
+    & > li {
+
+        ul {
+            position: absolute;
+            top: 0px;
+            margin-left: 100%;
+
+            display: none;
+        }
+    }
+
+    & > li:hover {
+
+        ul {
+            display: block;
+        }
+    }
+}
