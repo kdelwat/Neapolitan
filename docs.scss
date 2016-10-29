@@ -1,11 +1,4 @@
-@import "reset";
-
-@import "grid";
-@import "responsive";
-@import "alignment";
-@import "elements";
-@import "typography";
-@import "ui";
+@import "neapolitan/base";
 
 $mobile: media-until(480px);
 $tablet: media-between(481px, 768px);
@@ -250,4 +243,9 @@ pre > code {
             font-size: type-scale($type-ratio, 1);
         }
     }
+}
+
+a {
+    text-decoration: none;
+    color: $chocolate;
 }
