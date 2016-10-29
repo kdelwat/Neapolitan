@@ -62,8 +62,9 @@ header {
     @include grid($gutter: 0rem);
 
     .vanilla {
-        @include width(1);
+        @include width(1, $media: $mobile);
         @include width(1/2, $media: $tablet);
+        @include width(1/2, $media: $desktop);
 
         padding-bottom: 1rem;
 
