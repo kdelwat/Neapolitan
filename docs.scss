@@ -249,3 +249,19 @@ a {
     text-decoration: none;
     color: $chocolate;
 }
+
+a.doc-link {
+    display: block;
+
+    @include center(300px);
+    text-align: center;
+
+    padding: 8px;
+    margin-top: 1rem;
+
+    font-size: type-scale($type-ratio, 3);
+    background-color: $vanilla;
+    color: $text-colour;
+
+    border-radius: 3px;
+}
