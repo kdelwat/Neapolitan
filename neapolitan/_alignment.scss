@@ -1,6 +1,6 @@
 /// Horizontally center an element, giving it a given width.
 ///
-/// @group alignment
+/// @group responsive
 ///
 /// @parameter {size} $width The width of the element.
 ///
@@ -22,7 +22,7 @@
 
 /// A simple clearfix for elements containing floats.
 ///
-/// @group alignment
+/// @group misc
 ///
 /// @parameter {string} $media [""] The breakpoint that will have the mixin
 /// applied.
