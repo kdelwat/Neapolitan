@@ -1,3 +1,17 @@
+/// Horizontally center an element, giving it a given width.
+///
+/// @group alignment
+///
+/// @parameter {size} $width The width of the element.
+///
+/// @parameter {string} $media [""] The breakpoint that will have the mixin
+/// applied.
+///
+/// @example scss
+///     div {
+///         @include center(500px, $media: $tablet);
+///     }
+
 @mixin center($width, $media:"") {
     @include break($media) {
         width: $width;
@@ -5,6 +19,18 @@
         margin-right: auto;
     }
 }
+
+/// A simple clearfix for elements containing floats.
+///
+/// @group alignment
+///
+/// @parameter {string} $media [""] The breakpoint that will have the mixin
+/// applied.
+///
+/// @example scss
+///     div {
+///         @include clearfix();
+///     }
 
 @mixin clearfix($media:"") {
     @include break($media) {
