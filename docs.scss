@@ -1,8 +1,8 @@
 @import "neapolitan/base";
 
 $mobile: media-until(480px);
-$tablet: media-between(481px, 768px);
-$desktop: media-from(769px);
+$tablet: media-between(481px, 1099px);
+$desktop: media-from(1100px);
 
 $heading-font: 'Patua One', sans-serif;
 $code-font: 'PT Mono', monospace;
@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 main {
-    @include center(450px, $tablet);
+    @include center(80%, $tablet);
     @include center(50%, $desktop);
 
     padding: 1rem;
@@ -81,7 +81,7 @@ header {
 
 ul.mmm {
     @include grid($direction: column);
-    @include grid($direction: row, $media: $tablet);
+    @include grid($direction: column, $media: $tablet);
     @include grid($direction: row, $media: $desktop, $gutter: 2em);
 }
 
