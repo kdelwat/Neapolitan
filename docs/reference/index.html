@@ -1,0 +1,312 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Neapolitan</title><link rel="stylesheet" href="assets/css/main.css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="Neapolitan - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="<p>An unstyled Sass layout framework.</p>
+"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title"><a href="https://kdelwat.github.io/Neapolitan/">Neapolitan</a></h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="grid"><a href="#grid">grid</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="grid-mixin"><a href="#grid-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="grid" data-name="grid" data-type="mixin"><a href="#grid-mixin-grid">grid</a></li><li class="sidebar__item sassdoc__item" data-group="grid" data-name="width" data-type="mixin"><a href="#grid-mixin-width">width</a></li><li class="sidebar__item sassdoc__item" data-group="grid" data-name="gobble" data-type="mixin"><a href="#grid-mixin-gobble">gobble</a></li><li class="sidebar__item sassdoc__item" data-group="grid" data-name="acquiesce" data-type="mixin"><a href="#grid-mixin-acquiesce">acquiesce</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="misc"><a href="#misc">misc</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="misc-mixin"><a href="#misc-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="misc" data-name="clearfix" data-type="mixin"><a href="#misc-mixin-clearfix">clearfix</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="misc-function"><a href="#misc-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="misc" data-name="type-scale" data-type="function"><a href="#misc-function-type-scale">type-scale</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="responsive"><a href="#responsive">responsive</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="responsive-mixin"><a href="#responsive-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="responsive" data-name="center" data-type="mixin"><a href="#responsive-mixin-center">center</a></li><li class="sidebar__item sassdoc__item" data-group="responsive" data-name="breakpoint" data-type="mixin"><a href="#responsive-mixin-breakpoint">breakpoint</a></li><li class="sidebar__item sassdoc__item" data-group="responsive" data-name="break" data-type="mixin"><a href="#responsive-mixin-break">break</a></li><li class="sidebar__item sassdoc__item" data-group="responsive" data-name="hide" data-type="mixin"><a href="#responsive-mixin-hide">hide</a></li><li class="sidebar__item sassdoc__item" data-group="responsive" data-name="show" data-type="mixin"><a href="#responsive-mixin-show">show</a></li><li class="sidebar__item sassdoc__item" data-group="responsive" data-name="respond" data-type="mixin"><a href="#responsive-mixin-respond">respond</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="responsive-function"><a href="#responsive-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="responsive" data-name="media-until" data-type="function"><a href="#responsive-function-media-until">media-until</a></li><li class="sidebar__item sassdoc__item" data-group="responsive" data-name="media-from" data-type="function"><a href="#responsive-function-media-from">media-from</a></li><li class="sidebar__item sassdoc__item" data-group="responsive" data-name="media-between" data-type="function"><a href="#responsive-function-media-between">media-between</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="ui"><a href="#ui">ui</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="ui-mixin"><a href="#ui-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="ui" data-name="horizontal-menu" data-type="mixin"><a href="#ui-mixin-horizontal-menu">horizontal-menu</a></li><li class="sidebar__item sassdoc__item" data-group="ui" data-name="vertical-menu" data-type="mixin"><a href="#ui-mixin-vertical-menu">vertical-menu</a></li><li class="sidebar__item sassdoc__item" data-group="ui" data-name="overlay" data-type="mixin"><a href="#ui-mixin-overlay">overlay</a></li><li class="sidebar__item sassdoc__item" data-group="ui" data-name="rule" data-type="mixin"><a href="#ui-mixin-rule">rule</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="grid"><div class="container">grid</div></h1><section class="main__sub-section" id="grid-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="grid-mixin-grid"><h3 class="item__heading"><a class="item__name" href="#mixin-grid">grid</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin grid($gutter: 1em, $direction: row, $media: &quot;&quot;) { 
+
+    @include break($media) {
+        width: 100%;
+
+        display: flex;
+        flex-direction: $direction;
+
+        padding: ( $gutter / 2);
+
+        &amp; &gt; * {
+            display: block;
+            flex: 1 1 0;
+
+            padding: ( $gutter / 2);
+        }
+    }
+ }" data-collapsed="@mixin grid($gutter: 1em, $direction: row, $media: &quot;&quot;) { ... }"><code>@mixin grid($gutter: 1em, $direction: row, $media: &quot;&quot;) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Create a flexbox grid inside an element, which will apply to its child containers. The containers will become the columns of the grid.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$gutter</code></th><td data-label="desc"><p>The width of the gutters which seperate columns.</p></td><td data-label="type"><code>Size</code></td><td data-label="default"><code>1em</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$direction</code></th><td data-label="desc"><p>The flex direction that the columns will be displayed in (e.g. row or column).</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>row</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$media</code></th><td data-label="desc"><p>The breakpoint that will have the mixin applied.</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;&quot;</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-markup"><code>&lt;article&gt;
+    &lt;div&gt;Column 1&lt;/div&gt;
+    &lt;div&gt;Column 2&lt;/div&gt;
+    &lt;div&gt;Column 3&lt;/div&gt;
+&lt;/article&gt;</code></pre></div><div class="item__example example"><pre class="example__code language-scss"><code>article {
+    @include grid();
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#responsive-mixin-break"><code>break</code></a></li></ul></section><section class="main__item container item" id="grid-mixin-width"><h3 class="item__heading"><a class="item__name" href="#mixin-width">width</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin width($fraction, $media: &quot;&quot;) { 
+    @include break($media) {
+        flex: 0 0 ($fraction * 100%);
+    }
+ }" data-collapsed="@mixin width($fraction, $media: &quot;&quot;) { ... }"><code>@mixin width($fraction, $media: &quot;&quot;) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Explicitly set the width of a grid column, preventing it from flexing and causing the other columns to accomodate it.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$fraction</code></th><td data-label="desc"><p>A fraction (out of 1) representing the space that a column should take up. For example, a value of 1/2 will always fill half the total width of the grid.</p></td><td data-label="type"><code>Ratio</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$media</code></th><td data-label="desc"><p>The breakpoint that will have the mixin applied.</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;&quot;</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-markup"><code>&lt;article&gt;
+    &lt;div&gt;Column 1&lt;/div&gt;
+    &lt;div&gt;Column 2&lt;/div&gt;
+    &lt;div&gt;Column 3&lt;/div&gt;
+&lt;/article&gt;</code></pre></div><div class="item__example example"><pre class="example__code language-scss"><code>article {
+    @include grid();
+}
+
+article:first-child() {
+    @include width(1/2, $media: $mobile);
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#responsive-mixin-break"><code>break</code></a></li></ul></section><section class="main__item container item" id="grid-mixin-gobble"><h3 class="item__heading"><a class="item__name" href="#mixin-gobble">gobble</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin gobble($strength, $media: &quot;&quot;) { 
+
+    $value: 2;
+
+    @if $strength != 1 {
+        @for $n from 2 through $strength {
+            $value: $value * 2;
+        }
+    }
+
+    @include break($media) {
+        flex-grow: $value;
+    }
+ }" data-collapsed="@mixin gobble($strength, $media: &quot;&quot;) { ... }"><code>@mixin gobble($strength, $media: &quot;&quot;) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Set the growing strength of a column, allowing it to &quot;muscle out&quot; other columns.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$strength</code></th><td data-label="desc"><p>An integer, starting at 1, that will set the strength of the column.</p></td><td data-label="type"><code>Integer</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$media</code></th><td data-label="desc"><p>The breakpoint that will have the mixin applied.</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;&quot;</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-markup"><code>&lt;article&gt;
+    &lt;div&gt;Column 1&lt;/div&gt;
+    &lt;div&gt;Column 2&lt;/div&gt;
+    &lt;div&gt;Column 3&lt;/div&gt;
+&lt;/article&gt;</code></pre></div><div class="item__example example"><pre class="example__code language-scss"><code>article {
+    @include grid();
+}
+
+article:first-child() {
+    @include gobble(2);
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#responsive-mixin-break"><code>break</code></a></li></ul></section><section class="main__item container item" id="grid-mixin-acquiesce"><h3 class="item__heading"><a class="item__name" href="#mixin-acquiesce">acquiesce</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin acquiesce($strength, $media: &quot;&quot;) { 
+
+    $value: 1;
+
+    @if $strength != 1 {
+        @for $n from 2 through $strength {
+            $value: $value * 2;
+        }
+    }
+
+    @include break($media) {
+        flex-shrink: $value;
+    }
+ }" data-collapsed="@mixin acquiesce($strength, $media: &quot;&quot;) { ... }"><code>@mixin acquiesce($strength, $media: &quot;&quot;) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Set the shrinking ability of a column, allowing it to concede space to other columns.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$strength</code></th><td data-label="desc"><p>An integer, starting at 1, that will set the weakness of the column.</p></td><td data-label="type"><code>Integer</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$media</code></th><td data-label="desc"><p>The breakpoint that will have the mixin applied.</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;&quot;</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-markup"><code>&lt;article&gt;
+    &lt;div&gt;Column 1&lt;/div&gt;
+    &lt;div&gt;Column 2&lt;/div&gt;
+    &lt;div&gt;Column 3&lt;/div&gt;
+&lt;/article&gt;</code></pre></div><div class="item__example example"><pre class="example__code language-scss"><code>article {
+    @include grid();
+}
+
+article:first-child() {
+    @include acquiesce(3); //This guy&#39;s REALLY weak
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#responsive-mixin-break"><code>break</code></a></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="misc"><div class="container">misc</div></h1><section class="main__sub-section" id="misc-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="misc-mixin-clearfix"><h3 class="item__heading"><a class="item__name" href="#mixin-clearfix">clearfix</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin clearfix($media: &quot;&quot;) { 
+    @include break($media) {
+        &amp;::after {
+            content: &quot;&quot;;
+            display: block;
+            clear: both;
+        }
+    }
+ }" data-collapsed="@mixin clearfix($media: &quot;&quot;) { ... }"><code>@mixin clearfix($media: &quot;&quot;) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>A simple clearfix for elements containing floats.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$media</code></th><td data-label="desc"><p>The breakpoint that will have the mixin applied.</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;&quot;</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>div {
+    @include clearfix();
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#responsive-mixin-break"><code>break</code></a></li></ul></section></section><section class="main__sub-section" id="misc-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="misc-function-type-scale"><h3 class="item__heading"><a class="item__name" href="#function-type-scale">type-scale</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function type-scale($ratio, $level) { 
+    $base: 1rem;
+
+    @if $level == 1{
+        @return $base;
+    } @else if $level &gt; 1 {
+        @for $i from 1 through ($level - 1) {
+            $base: $base * $ratio;
+        }
+    } @else {
+        @for $i from $level through 0 {
+            $base: $base / $ratio;
+        }
+    }
+
+    @return $base;
+ }" data-collapsed="@function type-scale($ratio, $level) { ... }"><code>@function type-scale($ratio, $level) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>A function which provides a type scale based on the given ratio, to create consistent font sizing. The default size (<code>$level: 1</code>) //</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$ratio</code></th><td data-label="desc"><p>The type ratio, such as the golden ratio of 1.618, to be used in calculation.</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$level</code></th><td data-label="desc"><p>The level of type to be used, from 1 to infinity.</p></td><td data-label="type"><code>Integer</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Size</code> &mdash;<p>The calculated font size.</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>h1 {
+    font-size: type-scale($ratio: 1.618, $level: 6);
+}</code></pre></div></section></section></section><section class="main__section"><h1 class="main__heading" id="responsive"><div class="container">responsive</div></h1><section class="main__sub-section" id="responsive-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="responsive-mixin-center"><h3 class="item__heading"><a class="item__name" href="#mixin-center">center</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin center($width, $media: &quot;&quot;) { 
+    @include break($media) {
+        width: $width;
+        margin-left: auto;
+        margin-right: auto;
+    }
+ }" data-collapsed="@mixin center($width, $media: &quot;&quot;) { ... }"><code>@mixin center($width, $media: &quot;&quot;) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Horizontally center an element, giving it a given width.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$width</code></th><td data-label="desc"><p>The width of the element.</p></td><td data-label="type"><code>Size</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$media</code></th><td data-label="desc"><p>The breakpoint that will have the mixin applied.</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;&quot;</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>div {
+    @include center(500px, $media: $tablet);
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#responsive-mixin-break"><code>break</code></a></li></ul></section><section class="main__item container item" id="responsive-mixin-breakpoint"><h3 class="item__heading"><a class="item__name" href="#mixin-breakpoint">breakpoint</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin breakpoint($parameters) { 
+
+    $query: &#39;screen and &#39;;
+
+    @each $variable, $value in $parameters {
+        $query: $query + &#39;(&#39; + $variable + &#39;:&#39; + $value + &#39;) and &#39;;
+    };
+
+    $query: str-slice($query, 0, -5);
+
+    @media #{$query} { @content; };
+ }" data-collapsed="@mixin breakpoint($parameters) { ... }"><code>@mixin breakpoint($parameters) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Wrap content in a media query created from a breakpoint object.</p><p>The breakpoint is simply a map, where the keys are media query parameters (e.g. max-width) and the values are their value.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$parameters</code></th><td data-label="desc"><p>The media query parameters.</p></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive).<h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>$mobile: (max-width: 480px);
+
+div {
+    @include breakpoint($mobile) {
+        background-color: red;
+    }
+}</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#responsive-mixin-break"><code>break</code></a></li></ul></p></section><section class="main__item container item" id="responsive-mixin-break"><h3 class="item__heading"><a class="item__name" href="#mixin-break">break</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin break($media: &quot;&quot;) { 
+    @if $media != &quot;&quot; {
+        @include breakpoint($media) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+ }" data-collapsed="@mixin break($media: &quot;&quot;) { ... }"><code>@mixin break($media: &quot;&quot;) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>A helper for other mixins, that can take a breakpoint argument. If the argument is a breakpoint object, it applies the <code>breakpoint</code> mixin, but if an empty string is passed in simply outputs the given content. This allows for optional media parameters in other functions.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$media</code></th><td data-label="desc"><p>The breakpoint object.</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;&quot;</code></td></tr></tbody></table><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive).<h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@mixin clearfix($media:&quot;&quot;) {
+    @include break($media) {
+        &amp;::after {
+            content: &quot;&quot;;
+            display: block;
+            clear: both;
+        }
+    }
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#responsive-mixin-breakpoint"><code>breakpoint</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#grid-mixin-grid"><code>grid</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#grid-mixin-width"><code>width</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#grid-mixin-gobble"><code>gobble</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#grid-mixin-acquiesce"><code>acquiesce</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#misc-mixin-clearfix"><code>clearfix</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#responsive-mixin-center"><code>center</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#responsive-mixin-hide"><code>hide</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#responsive-mixin-show"><code>show</code></a></li></ul></p></section><section class="main__item container item" id="responsive-mixin-hide"><h3 class="item__heading"><a class="item__name" href="#mixin-hide">hide</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin hide($media) { 
+    @include break($media) {
+        display: none;
+    }
+ }" data-collapsed="@mixin hide($media) { ... }"><code>@mixin hide($media) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Hide the element when a given breakpoint object is active.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$media</code></th><td data-label="desc"><p>The breakpoint to hide on.</p></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>div {
+    @include hide ($mobile);
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#responsive-mixin-break"><code>break</code></a></li></ul></section><section class="main__item container item" id="responsive-mixin-show"><h3 class="item__heading"><a class="item__name" href="#mixin-show">show</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin show($media) { 
+    display: none;
+
+    @include break($media) {
+        display: block;
+    }
+ }" data-collapsed="@mixin show($media) { ... }"><code>@mixin show($media) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Show the element only when a given breakpoint object is active, i.e. hide it on all other screen sizes.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$media</code></th><td data-label="desc"><p>The breakpoint to show on.</p></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>div {
+    @include show ($desktop);
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#responsive-mixin-break"><code>break</code></a></li></ul></section><section class="main__item container item" id="responsive-mixin-respond"><h3 class="item__heading"><a class="item__name" href="#mixin-respond">respond</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin respond() { 
+    $active: #{nth(&amp;, -1)};
+    @if $active == &#39;img&#39; {
+        width: 100%;
+        height: auto;
+    } @else if $active == &#39;table&#39; {
+        display: block;
+        overflow-x: auto;
+    }
+ }" data-collapsed="@mixin respond() { ... }"><code>@mixin respond() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Make supported elements responsive. The mixin supports img and table tags, which are automatically detected. Their size and overflow behaviour is set to make them easily responsive.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>img { width: 100%; height: auto; }</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>img {
+    @include respond ();
+}</code></pre></div></section></section><section class="main__sub-section" id="responsive-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="responsive-function-media-until"><h3 class="item__heading"><a class="item__name" href="#function-media-until">media-until</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function media-until($size) { 
+    @return (max-width: $size);
+ }" data-collapsed="@function media-until($size) { ... }"><code>@function media-until($size) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Return a breakpoint object with max-width equal to the given size.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$size</code></th><td data-label="desc"><p>The maximum screen width.</p></td><td data-label="type"><code>Size</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Map</code> &mdash;<p>The breakpoint object.</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>$mobile: media-until (480px);</code></pre></div></section><section class="main__item container item" id="responsive-function-media-from"><h3 class="item__heading"><a class="item__name" href="#function-media-from">media-from</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function media-from($size) { 
+    @return (min-width: $size);
+ }" data-collapsed="@function media-from($size) { ... }"><code>@function media-from($size) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Return a breakpoint object with min-width equal to the given size.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$size</code></th><td data-label="desc"><p>The minimum screen width.</p></td><td data-label="type"><code>Size</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Map</code> &mdash;<p>The breakpoint object.</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>$desktop: media-from (800px);</code></pre></div></section><section class="main__item container item" id="responsive-function-media-between"><h3 class="item__heading"><a class="item__name" href="#function-media-between">media-between</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function media-between($min-size, $max-size) { 
+    @return (min-width: $min-size, max-width: $max-size);
+ }" data-collapsed="@function media-between($min-size, $max-size) { ... }"><code>@function media-between($min-size, $max-size) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Return a breakpoint object which matches screens between the two given sizes.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$min-size</code></th><td data-label="desc"><p>The minimum screen width.</p></td><td data-label="type"><code>Size</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$max-size</code></th><td data-label="desc"><p>The maximum screen width.</p></td><td data-label="type"><code>Size</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Map</code> &mdash;<p>The breakpoint object.</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>$tablet: media-between (481px, 799px);</code></pre></div></section></section></section><section class="main__section"><h1 class="main__heading" id="ui"><div class="container">ui</div></h1><section class="main__sub-section" id="ui-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="ui-mixin-horizontal-menu"><h3 class="item__heading"><a class="item__name" href="#mixin-horizontal-menu">horizontal-menu</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin horizontal-menu($alignment: flex-start) { 
+    display: flex;
+    justify-content: $alignment;
+    position: relative;
+
+    &amp; &gt; li {
+        display: inline-block;
+
+        ul {
+            position: absolute;
+            display: none;
+        }
+    }
+
+    &amp; &gt; li:hover {
+
+        ul {
+            display: block;
+        }
+    }
+ }" data-collapsed="@mixin horizontal-menu($alignment: flex-start) { ... }"><code>@mixin horizontal-menu($alignment: flex-start) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Create a horizontal drop-down hover menu from a list of lists. As long as the basic list structure is present, the contents of each item can be anything (including links, etc.).</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$alignment</code></th><td data-label="desc"><p>Specify the flex setting to use when aligning the menu items horizontally.</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>flex-start</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-markup"><code>&lt;ul id=&quot;menu&quot;&gt;
+    &lt;li&gt;Flavours
+        &lt;ul&gt;
+            &lt;li&gt;Chocolate&lt;/li&gt;
+            &lt;li&gt;Vanilla&lt;/li&gt;
+            &lt;li&gt;Strawberry&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Suppliers
+        &lt;ul&gt;
+            &lt;li&gt;Ice Creams &#39;r&#39; Us&lt;/li&gt;
+            &lt;li&gt;Cream and Gleam&lt;/li&gt;
+            &lt;li&gt;We Scream for Ice Cream&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Locations
+        &lt;ul&gt;
+            &lt;li&gt;Melbourne&lt;/li&gt;
+            &lt;li&gt;Sydney&lt;/li&gt;
+            &lt;li&gt;Canberra&lt;/li&gt;
+            &lt;li&gt;Adelaide&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre></div><div class="item__example example"><pre class="example__code language-scss"><code>#menu {
+    @include horizontal-menu();
+}</code></pre></div></section><section class="main__item container item" id="ui-mixin-vertical-menu"><h3 class="item__heading"><a class="item__name" href="#mixin-vertical-menu">vertical-menu</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin vertical-menu() { 
+    position: relative;
+    display: inline-block;
+
+    &amp; &gt; li {
+
+        ul {
+            position: absolute;
+            top: 0px;
+            margin-left: 100%;
+
+            display: none;
+        }
+    }
+
+    &amp; &gt; li:hover {
+
+        ul {
+            display: block;
+        }
+    }
+ }" data-collapsed="@mixin vertical-menu() { ... }"><code>@mixin vertical-menu() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Create a vertical hover menu from a list of lists, similarly to the horizontal-menu. Hovering over a top-level item will display the submenu to the right.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-markup"><code>&lt;ul id=&quot;menu&quot;&gt;
+    &lt;li&gt;Flavours
+        &lt;ul&gt;
+            &lt;li&gt;Chocolate&lt;/li&gt;
+            &lt;li&gt;Vanilla&lt;/li&gt;
+            &lt;li&gt;Strawberry&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Suppliers
+        &lt;ul&gt;
+            &lt;li&gt;Ice Creams &#39;r&#39; Us&lt;/li&gt;
+            &lt;li&gt;Cream and Gleam&lt;/li&gt;
+            &lt;li&gt;We Scream for Ice Cream&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Locations
+        &lt;ul&gt;
+            &lt;li&gt;Melbourne&lt;/li&gt;
+            &lt;li&gt;Sydney&lt;/li&gt;
+            &lt;li&gt;Canberra&lt;/li&gt;
+            &lt;li&gt;Adelaide&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre></div><div class="item__example example"><pre class="example__code language-scss"><code>#menu {
+    @include vertical-menu();
+}</code></pre></div></section><section class="main__item container item" id="ui-mixin-overlay"><h3 class="item__heading"><a class="item__name" href="#mixin-overlay">overlay</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin overlay($direction: &quot;bottom&quot;, $spacing: 0%) { 
+    position: relative;
+
+    &amp; &gt; * {
+        display: none;
+        position: absolute;
+
+        @if $direction == &quot;bottom&quot; {
+            left: 0;
+            top: 100% + $spacing;
+        } @else if $direction == &quot;top&quot; {
+            left: 0;
+            bottom: 100% + $spacing;
+        } @else if $direction == &quot;right&quot; {
+            left: 100% + $spacing;
+            top: 0;
+        } @else if $direction == &quot;left&quot; {
+            right: 100% + $spacing;
+            top: 0;
+        }
+    }
+
+    &amp;:hover &gt; * {
+        display: block;
+    }
+ }" data-collapsed="@mixin overlay($direction: &quot;bottom&quot;, $spacing: 0%) { ... }"><code>@mixin overlay($direction: &quot;bottom&quot;, $spacing: 0%) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Create a tooltip / floating element which appears when the styled element is hovered over. The floating element can be any block-level element.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$direction</code></th><td data-label="desc"><p>The direction for the overlay to appear in (top, bottom, left, right).</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;bottom&quot;</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$spacing</code></th><td data-label="desc"><p>An arbitrary spacing argument to add seperation between the target and the overlay.</p></td><td data-label="type"><code>Percentage</code></td><td data-label="default"><code>0%</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-markup"><code>&lt;span&gt;Hover me!&lt;div&gt;I&#39;ll appear&lt;/div&gt;&lt;/span&gt;</code></pre></div><div class="item__example example"><pre class="example__code language-scss"><code>span {
+    @include overlay ($direction: &quot;bottom&quot;);
+}</code></pre></div></section><section class="main__item container item" id="ui-mixin-rule"><h3 class="item__heading"><a class="item__name" href="#mixin-rule">rule</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin rule($height, $width: 100%, $color: 100%) { 
+    border: 0;
+    height: $height;
+    width: $width;
+
+    color: $color;
+    background-color: $color;
+ }" data-collapsed="@mixin rule($height, $width: 100%, $color: 100%) { ... }"><code>@mixin rule($height, $width: 100%, $color: 100%) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>A more flexible centered horizontal rule element, which can be applied to the hr tag or an empty div.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$height</code></th><td data-label="desc"><p>The vertical thickness of the rule.</p></td><td data-label="type"><code>Size</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$width</code></th><td data-label="desc"><p>The width of the rule.</p></td><td data-label="type"><code>Size</code></td><td data-label="default"><code>100%</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$color</code></th><td data-label="desc"><p>The color of the rule.</p></td><td data-label="type"><code>Color</code></td><td data-label="default"><code>100%</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>hr {
+    @include rule (5px, $width: 75%, $color: pink);
+}</code></pre></div></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --><a class="project-info__name" href="https://kdelwat.github.io/Neapolitan/">Neapolitan</a><!-- Version --><!-- License --> <span class="project-info__license">, under Apache 2.0</span></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>
