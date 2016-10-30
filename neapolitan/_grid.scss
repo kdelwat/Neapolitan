@@ -1,3 +1,29 @@
+/// Create a flexbox grid inside an element, which will apply to its child
+/// containers. The containers will become the columns of the grid.
+///
+/// @group grid
+///
+/// @parameter {size} $gutter [1em] The width of the gutters which seperate
+/// columns.
+///
+/// @parameter {string} $direction [row] The flex direction that the columns
+/// will be displayed in (e.g. row or column).
+///
+/// @parameter {string} $media [""] The breakpoint that will have the mixin
+/// applied.
+///
+/// @example markup
+///     <article>
+///         <div>Column 1</div>
+///         <div>Column 2</div>
+///         <div>Column 3</div>
+///     </article>
+///
+/// @example scss
+///     article {
+///         @include grid();
+///     }
+
 @mixin grid ($gutter:1em, $direction: row, $media:"") {
 
     @include break($media) {
@@ -17,11 +43,66 @@
     }
 }
 
+/// Explicitly set the width of a grid column, preventing it from flexing and
+/// causing the other columns to accomodate it.
+///
+/// @group grid
+///
+/// @parameter {ratio} $fraction A fraction (out of 1) representing the space
+/// that a column should take up. For example, a value of 1/2 will always fill
+/// half the total width of the grid.
+///
+/// @parameter {string} $media [""] The breakpoint that will have the mixin
+/// applied.
+///
+/// @example markup
+///     <article>
+///         <div>Column 1</div>
+///         <div>Column 2</div>
+///         <div>Column 3</div>
+///     </article>
+///
+/// @example scss
+///     article {
+///         @include grid();
+///     }
+///
+///     article:first-child() {
+///         @include width(1/2, $media: $mobile);
+///     }
+
 @mixin width ($fraction, $media:"") {
     @include break($media) {
         flex: 0 0 ($fraction * 100%);
     }
 }
+
+/// Set the growing strength of a column, allowing it to "muscle out" other
+/// columns.
+///
+/// @group grid
+///
+/// @parameter {integer} $strength An integer, starting at 1, that will set the
+/// strength of the column.
+///
+/// @parameter {string} $media [""] The breakpoint that will have the mixin
+/// applied.
+///
+/// @example markup
+///     <article>
+///         <div>Column 1</div>
+///         <div>Column 2</div>
+///         <div>Column 3</div>
+///     </article>
+///
+/// @example scss
+///     article {
+///         @include grid();
+///     }
+///
+///     article:first-child() {
+///         @include gobble(2);
+///     }
 
 @mixin gobble ($strength, $media:"") {
 
@@ -37,6 +118,33 @@
         flex-grow: $value;
     }
 }
+
+/// Set the shrinking ability of a column, allowing it to concede space to
+/// other columns.
+///
+/// @group grid
+///
+/// @parameter {integer} $strength An integer, starting at 1, that will set the
+/// weakness of the column.
+///
+/// @parameter {string} $media [""] The breakpoint that will have the mixin
+/// applied.
+///
+/// @example markup
+///     <article>
+///         <div>Column 1</div>
+///         <div>Column 2</div>
+///         <div>Column 3</div>
+///     </article>
+///
+/// @example scss
+///     article {
+///         @include grid();
+///     }
+///
+///     article:first-child() {
+///         @include acquiesce(3); //This guy's REALLY weak
+///     }
 
 @mixin acquiesce ($strength, $media:"") {
 
