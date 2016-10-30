@@ -1,3 +1,43 @@
+
+/// Create a horizontal drop-down hover menu from a list of lists. As long as
+/// the basic list structure is present, the contents of each item can be
+/// anything (including links, etc.).
+///
+/// @group ui
+/// @parameter {string} $alignment [flex-start] - Specify the flex setting to
+/// use when aligning the menu items horizontally.
+///
+/// @example markup
+///     <ul id="menu">
+///         <li>Flavours
+///             <ul>
+///                 <li>Chocolate</li>
+///                 <li>Vanilla</li>
+///                 <li>Strawberry</li>
+///             </ul>
+///         </li>
+///         <li>Suppliers
+///             <ul>
+///                 <li>Ice Creams 'r' Us</li>
+///                 <li>Cream and Gleam</li>
+///                 <li>We Scream for Ice Cream</li>
+///             </ul>
+///         </li>
+///         <li>Locations
+///             <ul>
+///                 <li>Melbourne</li>
+///                 <li>Sydney</li>
+///                 <li>Canberra</li>
+///                 <li>Adelaide</li>
+///             </ul>
+///         </li>
+///     </ul>
+///
+/// @example scss
+///     #menu {
+///         @include horizontal-menu();
+///     }
+
 @mixin horizontal-menu ($alignment: flex-start) {
     display: flex;
     justify-content: $alignment;
@@ -19,6 +59,43 @@
         }
     }
 }
+
+/// Create a vertical hover menu from a list of lists, similarly to the
+/// horizontal-menu. Hovering over a top-level item will display the submenu to
+/// the right.
+///
+/// @group ui
+///
+/// @example markup
+///     <ul id="menu">
+///         <li>Flavours
+///             <ul>
+///                 <li>Chocolate</li>
+///                 <li>Vanilla</li>
+///                 <li>Strawberry</li>
+///             </ul>
+///         </li>
+///         <li>Suppliers
+///             <ul>
+///                 <li>Ice Creams 'r' Us</li>
+///                 <li>Cream and Gleam</li>
+///                 <li>We Scream for Ice Cream</li>
+///             </ul>
+///         </li>
+///         <li>Locations
+///             <ul>
+///                 <li>Melbourne</li>
+///                 <li>Sydney</li>
+///                 <li>Canberra</li>
+///                 <li>Adelaide</li>
+///             </ul>
+///         </li>
+///     </ul>
+///
+/// @example scss
+///     #menu {
+///         @include vertical-menu();
+///     }
 
 @mixin vertical-menu () {
     position: relative;
@@ -42,6 +119,25 @@
         }
     }
 }
+
+/// Create a tooltip / floating element which appears when the styled element
+/// is hovered over. The floating element can be any block-level element.
+///
+///@group ui
+///
+///@parameter {string} $direction ["bottom"] - The direction for the overlay
+///to appear in (top, bottom, left, right).
+///
+///@parameter {percentage} $spacing [0%] - An arbitrary spacing argument to add
+///seperation between the target and the overlay.
+///
+///@example markup
+///    <span>Hover me!<div>I'll appear</div></span>
+///
+///@example scss
+///    span {
+///        @include overlay ($direction: "bottom");
+///    }
 
 @mixin overlay ($direction: "bottom", $spacing: 0%) {
     position: relative;
