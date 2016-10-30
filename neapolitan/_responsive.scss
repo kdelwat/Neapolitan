@@ -1,3 +1,21 @@
+/// Wrap content in a media query created from a breakpoint object.
+///
+/// The breakpoint is simply a map, where the keys are media query parameters
+/// (e.g. max-width) and the values are their value.
+///
+/// @group responsive
+///
+/// @parameter {map} $parameters The media query parameters.
+///
+/// @example scss
+///     $mobile: (max-width: 480px);
+///
+///     div {
+///         @include breakpoint($mobile) {
+///             background-color: red;
+///         }
+///     }
+
 @mixin breakpoint($parameters){
 
     $query: 'screen and ';
@@ -11,6 +29,26 @@
     @media #{$query} { @content; };
 }
 
+/// A helper for other mixins, that can take a breakpoint argument. If the
+/// argument is a breakpoint object, it applies the `breakpoint` mixin, but if
+/// an empty string is passed in simply outputs the given content. This allows
+/// for optional media parameters in other functions.
+///
+/// @group responsive
+///
+/// @parameter {string} $media [""] The breakpoint object.
+///
+/// @example scss
+///     @mixin clearfix($media:"") {
+///         @include break($media) {
+///             &::after {
+///                 content: "";
+///                 display: block;
+///                 clear: both;
+///             }
+///         }
+///     }
+
 @mixin break($media) {
     @if $media != "" {
         @include breakpoint($media) {
@@ -21,31 +59,107 @@
     }
 }
 
+/// Return a breakpoint object with max-width equal to the given size.
+///
+/// @group responsive
+///
+/// @parameter {size} $size The maximum screen width.
+///
+/// @return {map} The breakpoint object.
+///
+/// @example scss
+///     $mobile: media-until (480px);
+
 @function media-until($size) {
     @return (max-width: $size);
 }
+
+/// Return a breakpoint object with min-width equal to the given size.
+///
+/// @group responsive
+///
+/// @parameter {size} $size The minimum screen width.
+///
+/// @return {map} The breakpoint object.
+///
+/// @example scss
+///     $desktop: media-from (800px);
 
 @function media-from($size) {
     @return (min-width: $size);
 }
 
+/// Return a breakpoint object which matches screens between the two given sizes.
+///
+/// @group responsive
+///
+/// @parameter {size} $min-size The minimum screen width.
+///
+/// @parameter {size} $max-size The maximum screen width.
+///
+/// @return {map} The breakpoint object.
+///
+/// @example scss
+///     $tablet: media-between (481px, 799px);
+
 @function media-between($min-size, $max-size) {
     @return (min-width: $min-size, max-width: $max-size);
 }
 
-@mixin hide($medias) {
-    @include break($medias) {
+/// Hide the element when a given breakpoint object is active.
+///
+/// @group responsive
+///
+/// @parameter {map} $media The breakpoint to hide on.
+///
+/// @example scss
+///     div {
+///         @include hide ($mobile);
+///     }
+
+@mixin hide($media) {
+    @include break($media) {
         display: none;
     }
 }
 
-@mixin show($medias) {
+/// Show the element only when a given breakpoint object is active, i.e. hide
+/// it on all other screen sizes.
+///
+/// @group responsive
+///
+/// @parameter {map} $media The breakpoint to show on.
+///
+/// @example scss
+///     div {
+///         @include show ($desktop);
+///     }
+
+@mixin show($media) {
     display: none;
 
-    @include break($medias) {
+    @include break($media) {
         display: block;
     }
 }
+
+/// Make supported elements responsive. The mixin supports img and table tags,
+/// which are automatically detected. Their size and overflow behaviour is set
+/// to make them easily responsive.
+///
+/// @group responsive
+///
+/// @example scss
+///     img {
+///         @include respond ();
+///     }
+///
+/// @outputs
+///     img {
+///         width: 100%;
+///         height: auto;
+///     }
+///
 
 @mixin respond() {
     $active: #{nth(&, -1)};
