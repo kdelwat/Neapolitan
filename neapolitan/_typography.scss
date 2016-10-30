@@ -1,6 +1,22 @@
-$type-basis: 1rem;
+/// A function which provides a type scale based on the given ratio, to create
+/// consistent font sizing. The default size (`$level: 1`) is 1rem.
+///
+/// @group typography
+///
+/// @parameter {number} $ratio The type ratio, such as the golden ratio of
+/// 1.618, to be used in calculation.
+///
+/// @parameter {integer} $level The level of type to be used, from 1 to
+/// infinity.
+///
+/// @returns {size} The calculated font size.
+///
+/// @example scss
+///     h1 {
+///         font-size: type-scale($ratio: 1.618, $level: 6);
+///     }
 
-@function type-scale($ratio, $level, $base: $type-basis) {
+@function type-scale($ratio, $level) {
     $base: 1rem;
 
     @if $level == 1{
