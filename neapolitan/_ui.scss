@@ -166,3 +166,27 @@
     }
 }
 
+/// A more flexible centered horizontal rule element, which can be applied to
+/// the hr tag or an empty div.
+///
+///@group ui
+///
+///@parameter {size} $height The vertical thickness of the rule.
+///
+///@parameter {size} $width [100%] The width of the rule.
+///
+///@parameter {color} $color [100%] The color of the rule.
+///
+///@example scss
+///    hr {
+///        @include rule (5px, $width: 75%, $color: pink);
+///    }
+
+@mixin rule ($height, $width: 100%, $color: black) {
+    border: 0;
+    height: $height;
+    width: $width;
+
+    color: $color;
+    background-color: $color;
+}

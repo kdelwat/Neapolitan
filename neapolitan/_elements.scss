@@ -1,8 +1,0 @@
-@mixin rule ($height, $width: 100%, $color: black) {
-    border: 0;
-    height: $height;
-    width: $width;
-
-    color: $color;
-    background-color: $color;
-}
