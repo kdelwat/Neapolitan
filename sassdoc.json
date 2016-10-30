@@ -1,0 +1,9 @@
+{
+    "package": {
+        "title": "Neapolitan",
+        "name": "neapolitan",
+        "description": "An unstyled Sass layout framework.",
+        "license": "Apache 2.0",
+        "homepage": "https://kdelwat.github.io/Neapolitan/"
+    }
+}
